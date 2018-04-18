@@ -18,6 +18,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision :shell, path: "provisioning/01-vbox-guest-additions.sh"
   config.vm.provision :shell, path: "provisioning/02-lxde.sh"
   config.vm.provision :shell, path: "provisioning/03-docker.sh"
+  config.vm.provision :shell, path: "provisioning/04-utilities.sh"
   config.vm.define "vagrant-docker"
 
   # Disable automatic box update checking. If you disable this, then

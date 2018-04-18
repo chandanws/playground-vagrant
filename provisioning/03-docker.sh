@@ -12,5 +12,9 @@ echo -e "=== Installing Docker\n"
 sudo apt-get --yes update
 sudo apt-get install --yes docker-ce
 
+echo -e "=== Adding User To Docker Group\n"
+sudo gpasswd -a vagrant docker
+newgrp docker
+
 echo -e "=== Testing Docker\n"
 sudo docker run hello-world
