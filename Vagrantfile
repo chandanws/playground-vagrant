@@ -14,8 +14,10 @@ Vagrant.configure("2") do |config|
   # boxes at https://vagrantcloud.com/search.
   #config.vm.box = "hashicorp/precise64"
   config.vm.box = "bento/ubuntu-16.04"
-  config.vm.provision :shell, path: "provisioning.sh"
-  config.vm.provision :shell, path: "docker.sh"  
+  config.vm.provision :shell, path: "provisioning/00-apt-update.sh"
+  config.vm.provision :shell, path: "provisioning/01-vbox-guest-additions.sh"
+  config.vm.provision :shell, path: "provisioning/02-lxde.sh"
+  config.vm.provision :shell, path: "provisioning/03-docker.sh"
   config.vm.define "vagrant-docker"
 
   # Disable automatic box update checking. If you disable this, then
@@ -54,15 +56,25 @@ Vagrant.configure("2") do |config|
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
-  # Example for VirtualBox:
-  #
-  # config.vm.provider "virtualbox" do |vb|
-  #   # Display the VirtualBox GUI when booting the machine
-  #   vb.gui = true
-  #
-  #   # Customize the amount of memory on the VM:
-  #   vb.memory = "1024"
-  # end
+  config.vm.provider "virtualbox" do |vb|
+
+    vb.name = "leonardo-microservices"
+    vb.gui = true
+    vb.memory = "3072"
+    vb.linked_clone = false
+
+    vb.customize ["modifyvm", :id, "--cpuexecutioncap", "80"]
+    vb.customize ["modifyvm", :id, "--cpus", "2"]
+
+    # Video RAM, 33 is the minimum to obtain seamless integration.
+    vb.customize ["modifyvm", :id, "--vram", "48"]
+
+    # Acceleration is needed for apps as FFox.
+    vb.customize ["modifyvm", :id, "--accelerate3d", "on"]
+    vb.customize ["modifyvm", :id, "--accelerate2dvideo", "on"]
+
+  end
+
   #
   # View the documentation for the provider you are using for more
   # information on available options.
