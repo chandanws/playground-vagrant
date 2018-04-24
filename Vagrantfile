@@ -18,6 +18,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision :shell, path: "provisioning/01-vbox-guest-additions.sh"
   config.vm.provision :shell, path: "provisioning/02-lxde.sh"
   config.vm.provision :shell, path: "provisioning/03-docker.sh"
+  config.vm.provision :shell, path: "provisioning/04-utilities.sh"
   config.vm.define "vagrant-docker"
 
   # Disable automatic box update checking. If you disable this, then
@@ -30,7 +31,7 @@ Vagrant.configure("2") do |config|
   # accessing "localhost:8080" will access port 80 on the guest machine.
   # NOTE: This will enable public access to the opened port
 
-  config.vm.network :forwarded_port, guest: 80, host: 9080
+  # config.vm.network :forwarded_port, guest: 80, host: 9080
 
   # config.vm.network "forwarded_port", guest: 80, host: 8080
 
@@ -46,7 +47,7 @@ Vagrant.configure("2") do |config|
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
   # your network.
-  # config.vm.network "public_network"
+  config.vm.network "public_network"
 
   # Share an additional folder to the guest VM. The first argument is
   # the path on the host to the actual folder. The second argument is

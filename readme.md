@@ -1,4 +1,9 @@
-## Manual
+## Prerequisites
+
+* Vagrant
+  * Packages can be dowloaded [here](https://www.vagrantup.com/downloads.html).
+
+## Creation
 
 `cd` to the project folder and
 
