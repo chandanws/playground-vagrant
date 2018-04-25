@@ -26,6 +26,9 @@ sudo apt-get install --yes eclipse
 echo -e "=== Keyb"
 sudo apt-get install --yes debconf-utils
 
+echo -e "=== Maven"
+sudo apt-get install --yes maven
+
 # https://unix.stackexchange.com/questions/96215/feeding-input-values-to-dpkg-reconfigure-in-a-non-interactive-way#96227
 # https://askubuntu.com/questions/155424/changing-tty-keyboard-layout-on-a-server#158895
 # https://askubuntu.com/questions/252688/lubuntu-12-04-change-default-keyboard-layout-after-installation#371843
