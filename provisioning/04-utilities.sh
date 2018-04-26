@@ -21,10 +21,16 @@ echo -e "=== Geany"
 sudo apt-get install --yes geany
 
 echo -e "=== Eclipse"
-sudo apt-get install --yes eclipse
+#sudo apt-get install --yes eclipse
+wget http://ftp.fau.de/eclipse/technology/epp/downloads/release/oxygen/3a/eclipse-java-oxygen-3a-linux-gtk-x86_64.tar.gz
+mv eclipse-java-oxygen-3a-linux-gtk-x86_64.tar.gz eclipse.tar.gz
+tar -xvf eclipse.tar.gz
 
 echo -e "=== Keyb"
 sudo apt-get install --yes debconf-utils
+# Inspired by https://askubuntu.com/questions/788244/how-to-change-keyboard-layout-in-lubuntu-15-10
+sudo localectl set-keymap it
+sudo localectl set-x11-keymap it
 
 echo -e "=== Maven"
 sudo apt-get install --yes maven

@@ -1,7 +1,7 @@
 ## Prerequisites
 
 * Vagrant
-  * Packages can be dowloaded [here](https://www.vagrantup.com/downloads.html).
+  * Installation Packages can be downloaded [here](https://www.vagrantup.com/downloads.html).
 
 ## Creation
 
