@@ -9,19 +9,19 @@ sudo apt-get install --yes chromium-browser
 echo -e "=== Git\n"
 sudo apt-get install --yes git
 
-echo -e "=== Java 9\n" # not working with Eclipse ?
+echo -e "=== Java\n" # not working with Eclipse ?
 # OpenJDK 9 installation has some problems. This fixed them:
 #
 #     https://askubuntu.com/questions/769467/can-not-install-openjdk-9-jdk-because-it-tries-to-overwrite-file-aready-includ#769484
 #sudo apt-get install --yes openjdk-9-jdk
 #sudo dpkg --configure -a
 #sudo dpkg -i --force-overwrite /var/cache/apt/archives/$(ls /var/cache/apt/archives/ | grep -e openjdk-9-jdk_)
+sudo apt-get install --yes openjdk-8-jdk
 
 echo -e "=== Geany"
 sudo apt-get install --yes geany
 
 echo -e "=== Eclipse"
-#sudo apt-get install --yes eclipse
 wget http://ftp.fau.de/eclipse/technology/epp/downloads/release/oxygen/3a/eclipse-java-oxygen-3a-linux-gtk-x86_64.tar.gz
 mv eclipse-java-oxygen-3a-linux-gtk-x86_64.tar.gz eclipse.tar.gz
 tar -xvf eclipse.tar.gz

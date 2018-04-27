@@ -19,7 +19,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision :shell, path: "provisioning/02-lxde.sh"
   config.vm.provision :shell, path: "provisioning/03-docker.sh"
   config.vm.provision :shell, path: "provisioning/04-utilities.sh"
-  config.vm.define "vagrant-docker"
+  config.vm.define "leonardo-microservices"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
